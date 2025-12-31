@@ -390,6 +390,18 @@ body {
   text-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
 }
 
+#countdown-timer.celebration {
+  font-size: 5.5rem;
+  font-weight: 200;
+  background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bff6b, #6bb5ff, #ff6bff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow 3s linear infinite;
+  text-shadow: none;
+}
+
 .countdown-label {
   font-size: 0.9rem;
   letter-spacing: 0.3em;
@@ -442,6 +454,10 @@ body {
 
   #countdown-timer {
     font-size: 2.5rem;
+  }
+
+  #countdown-timer.celebration {
+    font-size: 3rem;
   }
 }
 

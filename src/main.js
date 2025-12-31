@@ -283,10 +283,17 @@ function stopFinale() {
 // Update countdown timer
 function updateCountdown() {
   const now = new Date()
-  const newYear = new Date(now.getFullYear() + 1, 0, 1)
+  const currentYear = now.getFullYear()
+  const newYear = new Date(currentYear + 1, 0, 1)
+  const countdownLabel = document.querySelector('.countdown-label')
 
-  if (now >= newYear) {
-    countdownTimer.textContent = '00:00:00'
+  // If we're in 2026 (the year we were counting down to), celebrate!
+  if (currentYear >= 2026) {
+    countdownTimer.textContent = `${currentYear}!`
+    countdownTimer.classList.add('celebration')
+    if (countdownLabel) {
+      countdownLabel.textContent = ''
+    }
     return
   }
 
@@ -297,6 +304,10 @@ function updateCountdown() {
 
   countdownTimer.textContent =
     `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+
+  if (countdownLabel) {
+    countdownLabel.textContent = `until ${currentYear + 1}`
+  }
 }
 
 // Animation loop
